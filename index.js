@@ -296,7 +296,7 @@ var nameToCode = (input) => {
   else if(input == '葫洲') { return 'BR21'; }
   else if(input == '東湖') { return 'BR22'; }
   else if(input == '南港軟體園區') { return 'BR23'; }
-  else if(input == '南港展覽館') { return 'BR24'; }
+  //else if(input == '南港展覽館') { return 'BR24'; }
   else if(input == '象山') { return 'R02'; }
   else if(input == '台北101/世貿') { return 'R03'; }
   else if(input == '信義安和') { return 'R04'; }
