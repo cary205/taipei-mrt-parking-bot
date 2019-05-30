@@ -4,6 +4,7 @@ const line = require('@line/bot-sdk');
 const express = require('express');
 const request = require("request");
 const cheerio = require("cheerio");
+const getData = require("./getData.js");
 
 // create LINE SDK config from env variables
 const config = {
@@ -431,34 +432,13 @@ function handleEvent(event) {
     return Promise.resolve(null);
   }
   
-  request(baseUrl + parsed[0], (error, response, body) => {
-    var $ = cheerio.load(body);
-    
-    var content = {};
-    var cnt = 0;
-    $("td").each(function(){
-      content[cnt] = $(this).text();
-      cnt++;
-    });
-    //console.log('##### content: ' + JSON.stringify(content));
-    
-    var startCnt = 0;
-    for(var i = 0 ; i < Object.keys(content).length ; i++){
-      if(content[i] == '[' + parsed[1] + ']') {
-        startCnt = i;
-      }
-    }
-    console.log('##### startCnt: ' + startCnt);
-    if(startCnt == 0){
-      return client.replyMessage(event.replyToken, { type: 'text', text: '查無資料(無線上車位資料或車位已滿)' });
-    }
-    
-    var replyMsg = content[startCnt] + "剩餘: " + content[startCnt + 1] + "位 (" + content[startCnt + 2] + ")";
-    console.log('##### replyMsg: ' + replyMsg);
-    
-    return client.replyMessage(event.replyToken, { type: 'text', text: replyMsg });
-  });
-
+  getData(parsed).then(res => {
+    return client.replyMessage(event.replyToken, { type: 'text', text: res });
+  })
+  
+  //return client.replyMessage(event.replyToken, { type: 'text', text: replyMsg });
+  //return client.replyMessage(event.replyToken, { type: 'text', text: '查無資料(無線上車位資料或車位已滿)' });
+  
   // create a echoing text message
   //const echo = { type: 'text', text: event.message.text };
 
