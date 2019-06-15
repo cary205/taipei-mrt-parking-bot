@@ -1,5 +1,7 @@
 # taipei-mrt-parking-bot
 
+<img align="right" width="250px" src="https://i.imgur.com/RuKNvcu.jpg">
+
 An LINE bot echoing Taipei MRT parking information
 
 ## Installation
