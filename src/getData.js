@@ -15,7 +15,7 @@ module.exports = function(parsed) {
             
             var replyMsg = "";
             
-            console.log("##### rresponse.statusCode: " + response.statusCode);
+            //console.log("##### rresponse.statusCode: " + response.statusCode);
             if(response.statusCode == 302) {
                 replyMsg = "無停車場資訊\n";
             } else {
@@ -37,7 +37,7 @@ module.exports = function(parsed) {
                     replyMsg = "無車位資料或車位已滿\n";
                 }
             }
-            console.log("##### replyMsg: " + replyMsg);
+            //console.log("##### replyMsg: " + replyMsg);
             resolve(replyMsg.slice(0, -1));
         });
         
