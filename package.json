@@ -4,12 +4,19 @@
   "description": "An LINE bot echoing Taipei MRT parking information",
   "main": "index.js",
   "scripts": {
-    "start": "node ."
+    "start": "node .",
+    "test": "mocha",
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha"
   },
   "dependencies": {
     "@line/bot-sdk": "^5.0.0",
     "cheerio": "^1.0.0-rc.3",
     "express": "^4.16.3",
     "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "codecov": "^3.5.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^6.1.4"
   }
 }
