@@ -1,4 +1,4 @@
-const stationsNameMap = require("../src/stationsNameMap.js");
+const stationsNameMap = require("./stationsNameMap.js");
 
 module.exports = function(input) {
     var stationName = input.substr(0, input.length - 2);
