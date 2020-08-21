@@ -1,7 +1,7 @@
 const request = require("request");
 const cheerio = require("cheerio");
 
-const baseUrl = "http://web.metro.taipei/c/payparkinginfo.asp?stationID=";
+const baseUrl = "https://web.metro.taipei/c/payparkinginfo.asp?stationID=";
 
 //var parsed = ["R17", "汽車"];
 
@@ -15,7 +15,7 @@ module.exports = function(parsed) {
             
             var replyMsg = "";
             
-            console.log("##### rresponse.statusCode: " + response.statusCode);
+            console.log("##### response.statusCode: " + response.statusCode);
             if(response.statusCode == 302) {
                 replyMsg = "無停車場資訊\n";
             } else {
